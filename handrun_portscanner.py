@@ -9,9 +9,9 @@ def connScan(tgtHost, tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
         sock.connect((tgtHost, tgtPort))
-        print(colored(f'[+] {tgtPort}/tcp Open'), 'green')
+        print(colored(f'[+] {tgtPort}/tcp Open', 'green'))
     except:
-        print(colored(f'[-] {tgtPort}/tcp Closed'), 'red')
+        print(colored(f'[-] {tgtPort}/tcp Closed', 'red'))
     finally:
         sock.close()
 
@@ -23,9 +23,9 @@ def portScanner(tgtHost, tgtPorts):
 
     try:
         tgtName = gethostbyaddr(tgtIP)
-        print(colored(f'[+] Scan result for: {tgtName(0)}'), 'yellow')
+        print(colored(f'[+] Scan result for: {tgtName(0)}', 'yellow'))
     except:
-        print(colored(f'[+] Scan result for: {tgtIP}'), 'yellow')
+        print(colored(f'[+] Scan result for: {tgtIP}', 'yellow'))
     
     setdefaulttimeout(1)
     
