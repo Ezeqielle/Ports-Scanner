@@ -9,18 +9,18 @@ Commands:
 > py portsScanner.py -h
 
 Specific ports scanning:
-> py portsScanner.py -H \<host> -p \<ports>
+> py portsScanner.py -t \<host> -p \<ports>
 
 All ports scanning:
-> py portsScanner.py -H \<host> -a
+> py portsScanner.py -t \<host> -a
 
 Range ports scanning:
-> py portsScanner.py -H \<host> -R \<port>,\<port>
+> py portsScanner.py -t \<host> -r \<port>,\<port>
 
 For save output in a log file:
-> py portsScanner.py -H \<host> -p \<ports> > \<file>.log </br>
-> py portsScanner.py -H \<host> -a > \<file>.log </br>
-> py portsScanner.py -H \<host> -R \<port>,\<port> > \<file>.log
+> py portsScanner.py -t \<host> -p \<ports> > \<file>.log </br>
+> py portsScanner.py -t \<host> -a > \<file>.log </br>
+> py portsScanner.py -t \<host> -r \<port>,\<port> > \<file>.log
 
 </br>
 </br>
