@@ -40,6 +40,7 @@ def main():
     (options, args) = parser.parse_args()
     tgtHost = options.tgtHost
     tgtPort = str(options.tgtPort).split(',')
+
     if (tgtHost == None) | (tgtPort == None):
         print(parser.usage)
         exit(0)
