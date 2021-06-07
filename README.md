@@ -25,4 +25,4 @@ For save output in an log file:
 © Ezeqielle
 </br>
 </br>
-> :warning: **colors don't work all time on windows**
+:warning: **colors don't work all time on windows** :warning:
