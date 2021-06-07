@@ -3,15 +3,22 @@
 from socket import *
 import optparse
 from threading import *
-from termcolor import colored
+from termcolor import colored, cprint
 
 def connScan(tgtHost, tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
         sock.connect((tgtHost, tgtPort))
+<<<<<<< Updated upstream
         print(colored(f'[+] {tgtPort}/tcp Open', 'green'))
     except:
         print(colored(f'[-] {tgtPort}/tcp Closed', 'red'))
+=======
+        result = colored(f'[+] {tgtPort}/tcp Open', 'green')
+        print(result)
+    except:
+        print(f'[-] {tgtPort}/tcp Closed', 'red')
+>>>>>>> Stashed changes
     finally:
         sock.close()
 
