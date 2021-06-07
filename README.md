@@ -1,21 +1,28 @@
 # Mini-Projet-Python
 
-python version: 3.8.5
+[![Python 3.8.5](https://img.shields.io/badge/python-3.8.5-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
+First install:
 > pip install -r requirement.txt
 
-Commands
+Commands:
+> py portsScanner.py -h
 
-> py handrun_portscanner.py -h
+Specific ports scanning:
+> py portsScanner.py -H \<host> -p \<ports>
 
-Specific ports scanning
+All ports scanning:
+> py portsScanner.py -H \<host> -a
 
-> py handrun_portscanner.py -H \<host> -p \<ports> | scan.\<version>.log
-
-All ports scanning
-
-> py handrun_portscanner.py -H \<host> -a | scan.\<version>.log
-
+For save output in an log file:
+> py portsScanner.py -H \<host> -p \<ports> | \<file>.log </br>
+> py portsScanner.py -H \<host> -a | \<file>.log
+> 
+</br>
+</br>
+</br>
+</br>
 © Ezeqielle
-
+</br>
+</br>
 > :warning: **colors don't work all time on windows**
