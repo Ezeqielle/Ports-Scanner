@@ -14,7 +14,7 @@ Specific ports scanning:
 All ports scanning:
 > py portsScanner.py -H \<host> -a
 
-For save output in an log file:
+For save output in a log file:
 > py portsScanner.py -H \<host> -p \<ports> | \<file>.log </br>
 > py portsScanner.py -H \<host> -a | \<file>.log
 > 
