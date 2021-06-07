@@ -94,7 +94,7 @@ def main():
     parser = optparse.OptionParser(usage=usage)
     parser.add_option('-H', dest='tgtHost', type='string', help='specifiy target host')
     parser.add_option('-p', dest='tgtPort', type='string', help='specifiy target post seperate by comma')
-    parser.add_option('-a', dest='tgtPorts', action='store_true', default=True, help='scann all ports')
+    parser.add_option('-a', dest='tgtPorts', action='store_true', default=False, help='scann all ports')
     (options, args) = parser.parse_args()
     tgtHost = options.tgtHost
     tgtPort = str(options.tgtPort).split(',')
