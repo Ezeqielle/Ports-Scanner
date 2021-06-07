@@ -46,6 +46,49 @@ def multiPortsScanner(tgtHost):
         t = Thread(target=multiConnScan, args=(tgtHost, int(tgtPort)))
         t.start()    
 
+####### Range port #######
+
+def rangeConnScan(tgtHost,tgtPort):
+    try:
+        sock = socket(AF_INET, SOCK_STREAM)
+        # try connection to HOST by selected PORT
+        sock.connect((tgtHost, tgtPort))
+        # print succesfull connection in green
+        print(colored(f'[+] {tgtPort}/tcp Open', 'green'))
+    except:
+        # print the fail connection in red
+        print(colored(f'[-] {tgtPort}/tcp Closed', 'red'))
+    finally:
+        # close the socket connection
+        sock.close()
+
+def rangePortsScanner(tgtHost, tgtRPorts):
+    try:
+        # get the HOST name
+        tgtIP = gethostbyname(tgtHost)
+    except:
+        # if connection fail print HOST in red
+        print(colored(f'[-] Unknow host {tgtHost}', 'red'))
+
+    try:
+        # get the HOST IP addr
+        tgtName = gethostbyaddr(tgtIP)
+        # if connection succes print HOST in yellow
+        print(colored(f'[+] Scan result for: {tgtName(0)}', 'yellow'))
+    except:
+        # if connection succes print HOST in yellow
+        print(colored(f'[+] Scan result for: {tgtIP}', 'yellow'))
+
+    # set default timeout connection to HOST
+    setdefaulttimeout(1)
+
+    # iter all ports and send each to rangeConnScan()
+    sta = tgtRPorts[0]
+    ed = tgtRPorts[1]
+    for tgtPort in range(int(sta),int(ed)):
+        t = Thread(target=rangeConnScan, args=(tgtHost, int(tgtPort)))
+        t.start()
+
 ####### Specific ports #######
 
 def connScan(tgtHost, tgtPort):
@@ -93,11 +136,13 @@ def main():
     usage = 'Usage: python3 %prog [option] arg'
     parser = optparse.OptionParser(usage=usage)
     parser.add_option('-H', dest='tgtHost', type='string', help='specifiy target host')
-    parser.add_option('-p', dest='tgtPort', type='string', help='specifiy target post seperate by comma')
+    parser.add_option('-p', dest='tgtPort', type='string', help='specifiy target port seperate by comma')
+    parser.add_option('-R', dest='tgtRPorts', type='string', help='specifiy target port range seperate by comma (ex: 0,443 -> eq 0 to 443)')
     parser.add_option('-a', dest='tgtPorts', action='store_true', default=False, help='scann all ports')
     (options, args) = parser.parse_args()
     tgtHost = options.tgtHost
     tgtPort = str(options.tgtPort).split(',')
+    tgtRPorts = str(options.tgtRPorts).split(',')
     tgtPorts = options.tgtPorts
 
     # return command error
@@ -109,6 +154,10 @@ def main():
     if tgtHost != None and tgtPorts == True:
         multiPortsScanner(tgtHost)
     
+    # if option -R used for scan range
+    if tgtHost != None and tgtRPorts != None:
+        rangePortsScanner(tgtHost, tgtRPorts)
+
     # else scan specifics ports in -p <port>,<port>
     else:
         portScanner(tgtHost, tgtPort)
