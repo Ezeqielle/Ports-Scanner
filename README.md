@@ -1,6 +1,7 @@
 # Ports Scanner
 
 [![Python 3.8.5](https://img.shields.io/badge/python-3.8.5-blue.svg)](https://www.python.org/downloads/release/python-385/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Ezeqielle/Randomware/blob/main/LICENSE)
 
 First install:
 > pip install -r requirement.txt
