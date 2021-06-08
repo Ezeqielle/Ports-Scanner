@@ -7,6 +7,7 @@ from termcolor import colored
 
 ####### All ports #######
 
+# take in param the host and ports
 def multiConnScan(tgtHost,tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
@@ -21,6 +22,7 @@ def multiConnScan(tgtHost,tgtPort):
         # close the socket connection
         sock.close()
 
+# take in param the host
 def multiPortsScanner(tgtHost):
     try:
         # get the HOST name
@@ -49,6 +51,7 @@ def multiPortsScanner(tgtHost):
 
 ####### Range port #######
 
+# take in param the host and ports
 def rangeConnScan(tgtHost,tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
@@ -63,6 +66,7 @@ def rangeConnScan(tgtHost,tgtPort):
         # close the socket connection
         sock.close()
 
+# take in param the host and ports
 def rangePortsScanner(tgtHost, tgtRPorts):
     try:
         # get the HOST name
@@ -93,6 +97,7 @@ def rangePortsScanner(tgtHost, tgtRPorts):
 
 ####### Specific ports #######
 
+# take in param the host and ports
 def connScan(tgtHost, tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
@@ -106,6 +111,7 @@ def connScan(tgtHost, tgtPort):
     finally:
         sock.close()
 
+# take in param the host and ports
 def portScanner(tgtHost, tgtPorts):
     try:
         # get the HOST name
